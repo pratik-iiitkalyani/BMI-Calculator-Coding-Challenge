@@ -6,7 +6,9 @@ const fs = require('fs');
 function calculateBMI() {
     return new Promise(async (resolve, reject) => {
         try {
-            let res = []
+            let res = {
+                bmi: []
+            }
             let overWeightCount = 0
             const obj = JSON.parse(fs.readFileSync(__dirname + '/data.json', 'utf8'));
             for (let i=0; i< obj.length; i++) {
@@ -14,9 +16,9 @@ function calculateBMI() {
                 if (response.BMI_Category === 'Overweight') {
                     overWeightCount++
                 }
-                res.push(response)
+                res.bmi.push(response)
             }
-            console.log(res, overWeightCount)
+            res['overWeightCount'] = overWeightCount
             resolve(res);
 
         } catch (err) {
