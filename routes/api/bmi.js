@@ -2,8 +2,8 @@
 const Router = require('express').Router();
 const BmiController = require('../../app/controllers/Bmi')
 
-// @route    POST api/users
-// @desc     Login user if user does not exit create new one
+// @route    GET api/v1/bmiCalculator
+// @desc     get the calculated BMI
 // @access   Public
 
 Router.get(
